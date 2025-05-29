@@ -15,10 +15,19 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        Release {
+            storeFile file(new File("../keystore/castdemo"))
+            storePassword 'castdemo'
+            keyAlias 'castdemo'
+            keyPassword 'castdemo'
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.Release
         }
     }
     packagingOptions {
